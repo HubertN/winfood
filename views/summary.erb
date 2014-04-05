@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is displaying the post</title>
+</head>
+<body>
+  <strong>Name: <%=@name %></strong>
+  <p>Email: <%=@mail %></p>
+  <%if @vegetarian%>
+    <p><%=@name%> is a vegetarian</p>
+  <%end%>
+  <p>Blood Type: <%=@bloodtype%></p>
+</body>
+</html>

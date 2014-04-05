@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCUUw6Rql1xvAcbUJbe9GeXzg_I-F5g_y0&libraries=places,geometry&sensor=false">
+</script>
+
+<script>
+function initialize()
+{
+
+var geocoder= new google.maps.Geocoder();
+var lat = '';
+var lng = '';
+var address = '78701';
+geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+         lat = results[0].geometry.location.lat();
+         lng = results[0].geometry.location.lng();
+         console.log('Latitude: ' + lat + ' Logitude: ' + lng);
+
+        var mapProp = {
+          center:new google.maps.LatLng(lat, lng),
+          zoom:13,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+
+        var map=new google.maps.Map(document.getElementById("googleMap")
+          ,mapProp);
+
+
+
+
+
+      }
+    }
+);
+
+
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:900px;"></div>
+
+</body>
+</html>
