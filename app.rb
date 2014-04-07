@@ -1,6 +1,11 @@
 require "sinatra"
 require "rubygems"
 require "pry"
+require 'dotenv'
+require 'oauth'
+require 'json'
+
+Dotenv.load
 
 set :bind, "0.0.0.0"
 
@@ -16,6 +21,29 @@ end
 
 get "/gather-info" do
   erb :info
+end
+
+get "/yelp" do
+
+  consumer_key = ENV["CONSUMER_KEY"]
+  consumer_secret = ENV["CONSUMER_SECRET"]
+  token = ENV["TOKEN"]
+  token_secret = ENV["TOKEN_SECRET"]
+  api_host = "http://api.yelp.com"
+
+  consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => api_host})
+  access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+  #v2/search?term=food&ll=37.788022,-122.399797
+  path = "/v2/search?term=icecream&location=Austin,Tx&sort=2"
+  path2 = "/v2/search?term=icecream&location=Austin,Tx&sort=2"
+
+  @jresp = JSON.parse(access_token.get(path).body)
+  jresp2 = JSON.parse(access_token.get(path2).body)
+  erb :yelp
+end
+
+get "/practice" do
+  erb :pratice
 end
 
 post "/info-summary" do

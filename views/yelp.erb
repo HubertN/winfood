@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<%@jresp['businesses'].each do | business | %>
+  <%  if business['is_closed'] == false %>
+      <p> <%="#{business['name']}" + " " + "#{business['rating']}" + " " + "#{business["display_phone"]}"%></p>
+     <!--  puts business['location']['address']
+      # printf("%-32s  %10s  %3d  %1.1f\n",
+                # business['name'], business['address'],
+                # business['review_count'], business['rating']) -->
+
+    <%end%>
+<%end%>
+<!-- # puts "\n"
+# jresp2['businesses'].each do | business |
+#     if business['is_closed'] == false
+#       printf("%-32s  %10s  %3d  %1.1f\n",
+#                 business['name'], business['location.address'],
+#                 business['review_count'], business['rating'])
+
+#     end
+# end
+ -->
+
+
+ <p>Yelp goes here</p>
+ <p></p>
+</body>
+</html>

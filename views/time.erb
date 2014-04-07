@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCUUw6Rql1xvAcbUJbe9GeXzg_I-F5g_y0&libraries=places,geometry&sensor=false">
+<script src="http://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API"]%>&libraries=places,geometry&sensor=false">
 </script>
 
 <script>
@@ -17,10 +17,9 @@ geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
          lat = results[0].geometry.location.lat();
          lng = results[0].geometry.location.lng();
-         console.log('Latitude: ' + lat + ' Logitude: ' + lng);
 
         var mapProp = {
-          center:new google.maps.LatLng(lat, lng),
+          center:new google.maps.LatLng(lat, lng), //austin
           zoom:13,
           mapTypeId:google.maps.MapTypeId.ROADMAP
           };
@@ -28,7 +27,13 @@ geocoder.geocode( { 'address': address}, function(results, status) {
         var map=new google.maps.Map(document.getElementById("googleMap")
           ,mapProp);
 
+        var marker_313Pizza = new google.maps.Marker({
+          position: new google.maps.LatLng(30.274569,-97.757162),
+          animation:google.maps.Animation.BOUNCE
 
+        })
+
+        marker_313Pizza.setMap(map);
 
 
 
@@ -46,7 +51,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
 
 <body>
-<div id="googleMap" style="width:1000px;height:900px;"></div>
+<div class="user-input">
+<input id="food" type="text" placeholder="Enter food here"></input>
+</div>
+<div id="googleMap" style="width:1000px;height:600px;"></div>
 
 </body>
 </html>
