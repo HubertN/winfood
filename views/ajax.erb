@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+  </head>
+  <body>
+
+  <form>
+    <input type="text" class="food-type" />
+    <input type="submit" />
+  </form>
+<p>hi</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      $('form').on('submit', function (e) {
+        e.preventDefault();
+        $.post( "/test1", { searchTerm: $('.food-type').val(), time: "2pm" }, function (data) {
+          // might need to do this
+           var data = $.parseJSON(data);
+          console.log("Got data:", data);
+        });
+      });
+    </script>
+  </body>
+</html>
+
+
+
+

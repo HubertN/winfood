@@ -23,6 +23,31 @@ get "/gather-info" do
   erb :info
 end
 
+get "/ajax" do
+  erb :ajax
+end
+
+post "/test1" do
+  puts params
+
+  consumer_key = ENV["CONSUMER_KEY"]
+  consumer_secret = ENV["CONSUMER_SECRET"]
+  token = ENV["TOKEN"]
+  token_secret = ENV["TOKEN_SECRET"]
+  api_host = "http://api.yelp.com"
+
+  consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => api_host})
+  access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+
+  search_term = params[:searchTerm]
+  path = "/v2/search?term=#{search_term}&location=Austin,Tx"
+
+  jresp = JSON.parse(access_token.get(path).body)
+  rating = jresp["businesses"]
+  '{"businesses": "#{rating}"}'
+end
+
+
 get "/yelp" do
 
   consumer_key = ENV["CONSUMER_KEY"]
@@ -34,8 +59,8 @@ get "/yelp" do
   consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => api_host})
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   #v2/search?term=food&ll=37.788022,-122.399797
-  path = "/v2/search?term=icecream&location=Austin,Tx&sort=2"
-  path2 = "/v2/search?term=icecream&location=Austin,Tx&sort=2"
+  path = "/v2/search?term=pizza&location=Austin,Tx"
+  path2 = "/v2/search?term=pizza&location=Austin,Tx&sort=2"
 
   @jresp = JSON.parse(access_token.get(path).body)
   jresp2 = JSON.parse(access_token.get(path2).body)
@@ -49,6 +74,17 @@ end
 get "/map" do
   erb :omg
 end
+
+
+
+post "/test" do
+
+  puts params
+  "hi"
+end
+
+
+
 
 post "/info-summary" do
  # how to access the values that weere submitted by the hform!, you
