@@ -46,6 +46,10 @@ get "/practice" do
   erb :pratice
 end
 
+get "/map" do
+  erb :omg
+end
+
 post "/info-summary" do
  # how to access the values that weere submitted by the hform!, you
  # can render the erb files, but erb files need a way to acces the values

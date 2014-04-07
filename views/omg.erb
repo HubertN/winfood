@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API"]%>&libraries=places,geometry&sensor=false">
+</script>
+
+<script>
+
+var map;
+var geocoder= new google.maps.Geocoder();
+function initialize() {
+
+  var mapOptions = {
+    zoom: 12,
+    center: new google.maps.LatLng(30.2729209, -97.74438630000003)
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+addMarker();
+};
+
+function addMarker() {
+  var geocoder= new google.maps.Geocoder();
+  var lat = '';
+  var lng = '';
+  var address = '78704';
+  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    lat = results[0].geometry.location.lat();
+    lng = results[0].geometry.location.lng();
+    console.log(lat,lng)
+     marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat,lng),
+      // position: new google.maps.LatLng(<%= @lat %>, <%= @long %>),
+      map: map
+  });
+  }
+});
+
+
+}
+
+
+
+
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+// $('form').on('submit', initialize)
+
+</script>
+</head>
+<body>
+<button>ice cream</button><button>pizza</button>
+<div id="map-canvas" style="width:1000px;height:600px;"></div>
+
+</body>
+</html>

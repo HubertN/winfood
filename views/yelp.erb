@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </head>
 <body>
+  <p>Yelp goes here</p>
 <%@jresp['businesses'].each do | business | %>
   <%  if business['is_closed'] == false %>
-      <p> <%="#{business['name']}" + " " + "#{business['rating']}" + " " + "#{business["location"]["postal_code"]}"%></p>
+      <p class="pizza"> <%="#{business['name']}" + " " + "#{business['rating']}" + " " + "#{business["location"]["postal_code"]}"%></p>
      <!--  puts business['location']['address']
       # printf("%-32s  %10s  %3d  %1.1f\n",
                 # business['name'], business['address'],
@@ -24,8 +27,13 @@
 # end
  -->
 
+<script>
+  var pizza = $(".pizza").text();
+  pizza.split('<br />')
 
- <p>Yelp goes here</p>
+  console.log(pizza[0])
+</script>
+
  <p></p>
 </body>
 </html>
