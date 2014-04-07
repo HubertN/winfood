@@ -12,14 +12,14 @@ function initialize()
 var geocoder= new google.maps.Geocoder();
 var lat = '';
 var lng = '';
-var address = '78701';
+var address = '78759';
 geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
          lat = results[0].geometry.location.lat();
          lng = results[0].geometry.location.lng();
 
         var mapProp = {
-          center:new google.maps.LatLng(lat, lng), //austin
+          center:new google.maps.LatLng(30.27292,-97.74438), //austin
           zoom:13,
           mapTypeId:google.maps.MapTypeId.ROADMAP
           };
@@ -27,13 +27,6 @@ geocoder.geocode( { 'address': address}, function(results, status) {
         var map=new google.maps.Map(document.getElementById("googleMap")
           ,mapProp);
 
-        var marker_313Pizza = new google.maps.Marker({
-          position: new google.maps.LatLng(30.274569,-97.757162),
-          animation:google.maps.Animation.BOUNCE
-
-        })
-
-        marker_313Pizza.setMap(map);
 
 
 

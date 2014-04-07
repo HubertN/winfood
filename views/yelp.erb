@@ -5,7 +5,7 @@
 <body>
 <%@jresp['businesses'].each do | business | %>
   <%  if business['is_closed'] == false %>
-      <p> <%="#{business['name']}" + " " + "#{business['rating']}" + " " + "#{business["display_phone"]}"%></p>
+      <p> <%="#{business['name']}" + " " + "#{business['rating']}" + " " + "#{business["location"]["postal_code"]}"%></p>
      <!--  puts business['location']['address']
       # printf("%-32s  %10s  %3d  %1.1f\n",
                 # business['name'], business['address'],
