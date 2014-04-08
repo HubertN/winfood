@@ -11,7 +11,10 @@
       }
 
       form {
-        margin: 0 35%;
+        margin-top: 50px;
+      }
+
+      body {
       }
 
       .infoBody {
@@ -40,7 +43,7 @@
 
 .navLogo {
   float: right;
-  height: 100px;
+  height: 120px;
   width: 120px;
 
 }
@@ -57,7 +60,7 @@
   position: relative;
   height: 150px;
   width: 100%;
-  background-color: violet;
+
   overflow: hidden;
 }
 
@@ -66,7 +69,7 @@
   position: relative;
   height: 800px;
   width: 100%;
-  background-color: green;
+
 }
 
 .footerRow {
@@ -74,57 +77,57 @@
   position: relative;
   height: 100px;
   width: 100%;
-  background-color: black;
+
 }
 
 
 .navColumn1 {
-  background-color: red;
-  width: 20%;
+
+  width: 35%;
   margin: 1%;
 }
 .navColumn2 {
-  background-color: blue;
-  width: 54%;
+
+  width: 30%;
   margin: 1%;
 }
 .navColumn3 {
-  background-color: white;
-  width: 20%;
+
+  width: 35%;
   margin: 1%;
 }
 .bodyColumn1 {
-  background-color: white;
+
   width: 2%;
   margin: 1%;
 
 }
 .bodyColumn2 {
-  background-color: white;
+
   width: 90%;
   margin: 1%;
 
 }
 .bodyColumn3 {
-  background-color: white;
+
   width: 2%;
   margin: 1%;
 
 }
 .footerColumn1 {
-  background-color: white;
+
   width: 20%;
   margin: 1%;
 
 }
 .footerColumn2 {
-  background-color: white;
+
   width: 54%;
   margin: 1%;
 
 }
 .footerColumn3 {
-  background-color: white;
+
   width: 20%;
   margin: 1%;
 
@@ -138,16 +141,17 @@
  <body>
  <div class='navRow'>
    <div class='columns navColumn1'>
-     <img class='navLogo' src="images/hippo.gif" />
+     <img class='navLogo' src="hippo.png" />
    </div>
    <div class='columns navColumn2'>
      <form>
+      Find our hippo Winning some food to chomp...
       <input class="food-type" type="text" placeholder="food" >
       <input type='submit' />
     </form>
    </div>
 
-   <div class='columns navColumn3'>wtf</div>
+   <div class='columns navColumn3'></div>
  </div>
 
  <div class='bodyRow'>
@@ -251,9 +255,9 @@ var map;
           if (place.rating >= 5 ) {
             hippoimg = 'hippo50.png'
           } else if (place.rating == 4.5) {
-            hippoimg = 'hippo45.png'
+            hippoimg = 'hippo50.png'
           } else if (place.rating == 4.0) {
-            hippoimg = 'hippo40.png'
+            hippoimg = 'hippo35.png'
           } else if (place.rating == 3.5) {
             hippoimg = 'hippo35.png'
           } else if (place.rating <= 3) {
