@@ -3,12 +3,20 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
+      * {
+        margin: 0 auto;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+        letter-spacing: 2px;
+
+      }
+
+      form {
+        margin: 0 35%;
+      }
 
       .infoBody {
         float: left;
+        letter-spacing: 1px;
       }
 
       .infoImage {
@@ -18,19 +26,145 @@
 
       .header {
         font-size: 1.5em;
+        letter-spacing: 0px;
+        max-width: 300px;
       }
+
+    /*fgsdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfhsdgfhsgfh*/
+
+      #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+
+.navLogo {
+  float: right;
+  height: 100px;
+  width: 120px;
+
+}
+
+.columns {
+  position: relative;
+  float: left;
+  height: 80%;
+  width: 10%; /*Placeholder for debugging,
+  normally it should be defined more specifically*/
+
+}
+.navRow {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  background-color: violet;
+  overflow: hidden;
+}
+
+.bodyRow {
+
+  position: relative;
+  height: 800px;
+  width: 100%;
+  background-color: green;
+}
+
+.footerRow {
+
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background-color: black;
+}
+
+
+.navColumn1 {
+  background-color: red;
+  width: 20%;
+  margin: 1%;
+}
+.navColumn2 {
+  background-color: blue;
+  width: 54%;
+  margin: 1%;
+}
+.navColumn3 {
+  background-color: white;
+  width: 20%;
+  margin: 1%;
+}
+.bodyColumn1 {
+  background-color: white;
+  width: 2%;
+  margin: 1%;
+
+}
+.bodyColumn2 {
+  background-color: white;
+  width: 90%;
+  margin: 1%;
+
+}
+.bodyColumn3 {
+  background-color: white;
+  width: 2%;
+  margin: 1%;
+
+}
+.footerColumn1 {
+  background-color: white;
+  width: 20%;
+  margin: 1%;
+
+}
+.footerColumn2 {
+  background-color: white;
+  width: 54%;
+  margin: 1%;
+
+}
+.footerColumn3 {
+  background-color: white;
+  width: 20%;
+  margin: 1%;
+
+}
+
 
 
     </style>
   </head>
-  <body>
 
-  <form>
-    <input type="text" class="food-type" placeholder="food" />
-    <input type="submit" />
-  </form>
+ <body>
+ <div class='navRow'>
+   <div class='columns navColumn1'>
+     <img class='navLogo' src="images/hippo.gif" />
+   </div>
+   <div class='columns navColumn2'>
+     <form>
+      <input class="food-type" type="text" placeholder="food" >
+      <input type='submit' />
+    </form>
+   </div>
 
-  <div class="foods" style="display: hidden"></div>
+   <div class='columns navColumn3'>wtf</div>
+ </div>
+
+ <div class='bodyRow'>
+   <div class='columns bodyColumn1'></div>
+   <div class='columns bodyColumn2'>
+         <div id="map-canvas"></div>
+
+   </div>
+   <div class='columns bodyColumn3'></div>
+ </div>
+ <div class='footerRow'>
+   <div class='columns footerColumn1'></div>
+   <div class='columns footerColumn2'></div>
+   <div class='columns footerColumn3'></div>
+ </div>
+
+
 
 
   <script src="http://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API"]%>&libraries=places,geometry&sensor=false">
@@ -55,7 +189,7 @@ var map;
 
       var mapProp = {
         center: new google.maps.LatLng(30.2729209,97.74438630000003), //austin
-        zoom: 14,
+        zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
@@ -142,7 +276,7 @@ var map;
             "</div>"
 
           var infowindow = new google.maps.InfoWindow({
-            maxWidth: 350,
+            maxWidth: 900,
             content: contentFood,
           });
             console.log(marker.position);
@@ -157,7 +291,7 @@ var map;
     };
 
     </script>
-    <div id="map-canvas"></div>
+
   </body>
 </html>
 
