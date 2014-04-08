@@ -27,7 +27,7 @@ get "/ajax" do
   erb :ajax
 end
 
-post "/ajax" do
+get "/address" do
   puts params
 
   consumer_key = ENV["CONSUMER_KEY"]
@@ -40,7 +40,7 @@ post "/ajax" do
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
   search_term = params[:searchTerm]
-  path = "/v2/search?term=#{search_term}&location=Austin,Tx&limit=1"
+  path = "/v2/search?term=#{search_term}&location=Austin,Tx"
 
   jresp = JSON.parse(access_token.get(path).body)
   rating = jresp["businesses"]
@@ -49,16 +49,17 @@ post "/ajax" do
    if business['is_closed'] == false
      puts  "#{business["name"]}" + " " + "#{business["rating"]}"
      puts business['location']['address']
-      # printf("%-32s  %10s  %3d  %1.1f\n",
-                # business['name'], business['address'],
-                # business['review_count'], business['rating']) -->
-
     end
-end
-  '{"businesses": "#{rating}"}'
+  end
 
-  erb :time
+# jrsep business --> json
+  p jresp["businesses"]
 
+  places = jresp["businesses"]
+
+  content_type :json
+  # { :key1 => 'value1', :key2 => 'value2' }.to_json
+  places.to_json
 end
 
 
