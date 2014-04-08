@@ -40,7 +40,7 @@ get "/address" do
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
   search_term = params[:searchTerm]
-  path = "/v2/search?term=#{search_term}&location=Austin,Tx"
+  path = "/v2/search?term=#{search_term}&location=Austin,Tx&limit=11"
 
   jresp = JSON.parse(access_token.get(path).body)
   rating = jresp["businesses"]

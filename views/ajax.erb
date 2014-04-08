@@ -40,7 +40,7 @@ var map;
 
       var mapProp = {
         center: new google.maps.LatLng(30.2729209,97.74438630000003), //austin
-        zoom: 15,
+        zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
@@ -62,46 +62,17 @@ var map;
           success: function(data) {
             var lat = '';
             var lng = '';
-            var geocoder= new google.maps.Geocoder();
-            console.log(data);
             for(var i = 0; i < data.length; i++) {
-              // debugger;
-               console.log( data[i]['location']['address'] + ' ' + data[i]['location']['city'] + ' ' + data[i]['location']['state_code'] + ' ' + data[i]['location']['country_code']     );
-
-              geocoder.geocode( { "address": data[i]['location']['address'] + ' ' + data[i]['location']['city'] + ' ' + data[i]['location']['state_code'] + ' ' + data[i]['location']['country_code']   }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                  lat = results[0].geometry.location.lat();
-                  lng = results[0].geometry.location.lng();
-                }
-
-                var marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(lat,lng),
-                  map: map,
-                  title: 'Hello World!'
-                });
-              console.log(marker.position);
-              });
+              addMarker(data[i]);
 
 
               console.log(data[i]['name']);
-              //console.log(data[i]['location']['address'][0]);
               console.log(data[i]['location']['city'])
               console.log(data[i]['location']['state_code'])
               console.log(data[i]['location']['country_code'])
-              //place a marker for that location address
-              //if data[i]['rating'] === '5'
-
-
             }
-            // for(var i = 0; i < data.length; i++){
-            //   console.log(data[i]['rating'])
-
-            // }
-            //loop through data
-              //console.log each address
-              //place marker at that address
-            // console.log(data[0]['location']['address'][0]);
-          }})
+          }
+        })
 
 
 
@@ -109,7 +80,33 @@ var map;
       });
     };
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    var geocoder= new google.maps.Geocoder();
+    var addMarker = function (place) {
+      geocoder.geocode(
+        {
+          "address": place['location']['address'] + ' ' +
+            place['location']['city'] + ' ' +
+            place['location']['state_code'] + ' ' +
+            place['location']['country_code']
+        },
+        function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            lat = results[0].geometry.location.lat();
+            lng = results[0].geometry.location.lng();
+          }
+          console.log(place)
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat,lng),
+            map: map,
+            title: place["name"]
+          });
+            console.log(marker.position);
+            console.log(place['name'])
+        }
+      );
+    };
 
     </script>
     <div id="map-canvas"></div>
