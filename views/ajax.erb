@@ -102,8 +102,21 @@ var map;
             map: map,
             title: place["name"]
           });
+
+          var contentFood = "<div class='infoContent'>
+
+                      </div>"
+
+          var infowindow = new google.maps.InfoWindow({
+           content: place['name'] + " " + place['rating']
+          });
             console.log(marker.position);
             console.log(place['name'])
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+          });
+
         }
       );
     };
