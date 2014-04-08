@@ -27,7 +27,7 @@ get "/ajax" do
   erb :ajax
 end
 
-post "/test1" do
+post "/ajax" do
   puts params
 
   consumer_key = ENV["CONSUMER_KEY"]
@@ -40,11 +40,25 @@ post "/test1" do
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
   search_term = params[:searchTerm]
-  path = "/v2/search?term=#{search_term}&location=Austin,Tx"
+  path = "/v2/search?term=#{search_term}&location=Austin,Tx&limit=1"
 
   jresp = JSON.parse(access_token.get(path).body)
   rating = jresp["businesses"]
+
+  jresp['businesses'].each do | business |
+   if business['is_closed'] == false
+     puts  "#{business["name"]}" + " " + "#{business["rating"]}"
+     puts business['location']['address']
+      # printf("%-32s  %10s  %3d  %1.1f\n",
+                # business['name'], business['address'],
+                # business['review_count'], business['rating']) -->
+
+    end
+end
   '{"businesses": "#{rating}"}'
+
+  erb :time
+
 end
 
 
@@ -81,6 +95,41 @@ post "/test" do
 
   puts params
   "hi"
+end
+
+get "/practice2" do
+  erb :practice2
+end
+
+post "/practice2" do
+    puts params
+
+  consumer_key = ENV["CONSUMER_KEY"]
+  consumer_secret = ENV["CONSUMER_SECRET"]
+  token = ENV["TOKEN"]
+  token_secret = ENV["TOKEN_SECRET"]
+  api_host = "http://api.yelp.com"
+
+  consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => api_host})
+  access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+
+  search_term = params[:searchTerm]
+  path = "/v2/search?term=#{search_term}&location=Austin,Tx"
+
+  jresp = JSON.parse(access_token.get(path).body)
+  rating = jresp["businesses"]
+
+  jresp['businesses'].each do | business |
+    if business['is_closed'] == false
+     puts  "#{business["name"]}" + " " + "#{business["rating"]}"
+     puts business['location']['address']
+   #    # printf("%-32s  %10s  %3d  %1.1f\n",
+   #              # business['name'], business['address'],
+   #              # business['review_count'], business['rating']) -->
+
+    end
+end
+  '{"businesses": "#{rating}"}'
 end
 
 
