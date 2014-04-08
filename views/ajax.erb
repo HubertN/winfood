@@ -6,6 +6,21 @@
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
+
+      .infoBody {
+        float: left;
+      }
+
+      .infoImage {
+        float: right;
+        margin-left: 5px;
+      }
+
+      .header {
+        font-size: 1.5em;
+      }
+
+
     </style>
   </head>
   <body>
@@ -104,9 +119,10 @@ var map;
           });
 
           var contentFood = "<div class='infoContent'>" +
-              "<div class='header'>" + place.name + '</div>' +
-              "<div class='infoBody'>" + "<img src ='" + place.rating_img_url+ "'>"  + " " + place.review_count + " reviews <br>" + "PHONE:" + place.display_phone + "<br>" + "ADDRESS:" +place.location.address +
-              "</div>"
+
+              "<div class='infoBody'>" +  "<div class='header'>" + place.name + '</div>'  + "<img src ='" + place.rating_img_url+ "'>"  + " " + place.review_count + " reviews <br>" + place.display_phone + "<br>"  + place.location.address +
+              "</div>" +
+              "<div class='infoImage'>" + "<img src='" + place.image_url + "'>" + " </div>"
             "</div>"
 
           var infowindow = new google.maps.InfoWindow({
