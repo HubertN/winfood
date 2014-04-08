@@ -112,10 +112,26 @@ var map;
             lng = results[0].geometry.location.lng();
           }
           console.log(place)
+
+          var hippoimg = ''
+          if (place.rating >= 5 ) {
+            hippoimg = 'hippo50.png'
+          } else if (place.rating == 4.5) {
+            hippoimg = 'hippo45.png'
+          } else if (place.rating == 4.0) {
+            hippoimg = 'hippo40.png'
+          } else if (place.rating == 3.5) {
+            hippoimg = 'hippo35.png'
+          } else if (place.rating <= 3) {
+            hippoimg = 'hippo30.png'
+          }
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(lat,lng),
             map: map,
-            title: place["name"]
+            title: place["name"],
+            animation: google.maps.Animation.DROP,
+            icon: hippoimg
+
           });
 
           var contentFood = "<div class='infoContent'>" +
