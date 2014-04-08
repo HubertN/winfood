@@ -103,12 +103,15 @@ var map;
             title: place["name"]
           });
 
-          var contentFood = "<div class='infoContent'>
-
-                      </div>"
+          var contentFood = "<div class='infoContent'>" +
+              "<div class='header'>" + place.name + '</div>' +
+              "<div class='infoBody'>" + "<img src ='" + place.rating_img_url+ "'>"  + " " + place.review_count + " reviews <br>" + "PHONE:" + place.display_phone + "<br>" + "ADDRESS:" +place.location.address +
+              "</div>"
+            "</div>"
 
           var infowindow = new google.maps.InfoWindow({
-           content: place['name'] + " " + place['rating']
+            maxWidth: 350,
+            content: contentFood,
           });
             console.log(marker.position);
             console.log(place['name'])
