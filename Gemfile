@@ -5,5 +5,5 @@ gem "sinatra"
 gem "pry"
 gem "rspec"
 gem "dotenv"
-
+gem "pry-debugger"
 
