@@ -1,6 +1,6 @@
 require "sinatra"
 require "rubygems"
-require "pry"
+# require "pry"
 require 'dotenv'
 require 'oauth'
 require 'json'
