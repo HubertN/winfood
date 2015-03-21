@@ -1,4 +1,3 @@
-require_relative 'app.rb'
 
-run app.rb
-
+require_relative 'app'
+run Sinatra::Application
