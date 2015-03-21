@@ -15,7 +15,7 @@ get "/" do
 end
 
 get "/home" do
-  erb :home
+  erb :ajax
 end
 
 get "/places" do
