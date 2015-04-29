@@ -194,7 +194,7 @@ form {
 .input__label-content {
   position: relative;
   display: block;
-  padding: 1.6em 0;
+  padding: 1rem 0;
   width: 100%;
 }
 
@@ -227,7 +227,7 @@ form {
 
 .input__label-content--haruki {
   -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  transition: transform 0.3s, font-size 0.3s;
 }
 
 .input__label--haruki::before,
@@ -255,6 +255,7 @@ form {
 .input--filled .input__label-content--haruki {
   -webkit-transform: translate3d(0, -90%, 0);
   transform: translate3d(0, -90%, 0);
+  font-size: .75rem;
 }
 
 .input__field--haruki:focus + .input__label--haruki::before,
@@ -270,7 +271,7 @@ form {
 }
 
 .input__label-content {
-  font-size: 1.1em;
+  font-size: 1.2rem;
 }
 
 /*#########*/
@@ -341,6 +342,7 @@ span .examples a:hover {
 
 .ui-widget-content p {
   padding-bottom: 10px;
+  display: inline-block;
 }
 
 .ui-dialog {
@@ -351,11 +353,11 @@ span .examples a:hover {
 
 .ui-dialog a {
   outline: none;
-  text-align: center;
   text-decoration:none;
   font-size: 1.5em;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: -10px;
+  display: inline-block;
 }
 
 .ui-dialog a:hover {

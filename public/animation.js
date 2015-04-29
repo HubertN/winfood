@@ -4,7 +4,7 @@ $(document).ready(function() {
   // Handler for button click
   $("button").on('click',function(){
     // Bounce the hippo logo
-    $(".navLogo").effect( "bounce", {times:15}, 5500);
+    $(".navLogo").effect( "bounce", {times:15}, 5850);
     // Fades in new speech bubble text
     var hippoFood = $('.food-type').val();
     $(".bubble-text").fadeOut(1500,function(){
@@ -69,8 +69,8 @@ $(document).ready(function() {
     var paragraph2 = document.createElement('p');
     var anchor = document.createElement('a');
     paragraph1.innerHTML = "Win Food was created by Hubert Nguyen. It was built using Ruby with the Sinatra framework, jQuery, jQuery UI, Google Maps API and the Yelp API.";
-    paragraph2.innerHTML = "You can check out more of his work as his portfolio site : ";
-    anchor.innerHTML = "Hubert Nguyen";
+    paragraph2.innerHTML = "You can check out more of his work as his ";
+    anchor.innerHTML = "portfolio site";
     anchor.setAttribute('href','http://hubert-nguyen.com');
 
     $('#about-modal').append(paragraph1);
