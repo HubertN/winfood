@@ -2,300 +2,37 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      * {
-        margin: 0 auto;
-        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-        letter-spacing: 2px;
-
-      }
-
-      form {
-        margin-top: 50px;
-      }
-
-      body {
-      }
-
-      .infoBody {
-        float: left;
-        letter-spacing: 1px;
-      }
-
-      .infoImage {
-        float: right;
-        margin-left: 5px;
-      }
-
-      .header {
-        font-size: 1.5em;
-        letter-spacing: 0px;
-        max-width: 300px;
-      }
-
-    /*fgsdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfhsdgfhsgfh*/
-
-      #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-
-.navLogo {
-  float: right;
-  height: 120px;
-  width: 120px;
-
-}
-
-.columns {
-  position: relative;
-  float: left;
-  height: 80%;
-  width: 10%; /*Placeholder for debugging,
-  normally it should be defined more specifically*/
-
-}
-.navRow {
-  position: relative;
-  height: 150px;
-  width: 100%;
-
-  overflow: hidden;
-}
-
-.bodyRow {
-
-  position: relative;
-  height: 800px;
-  width: 100%;
-
-}
-
-.footerRow {
-
-  position: relative;
-  height: 100px;
-  width: 100%;
-
-}
-
-
-.navColumn1 {
-
-  width: 35%;
-  margin: 1%;
-}
-.navColumn2 {
-
-  width: 30%;
-  margin: 1%;
-}
-.navColumn3 {
-
-  width: 35%;
-  margin: 1%;
-}
-.bodyColumn1 {
-
-  width: 2%;
-  margin: 1%;
-
-}
-.bodyColumn2 {
-
-  width: 90%;
-  margin: 1%;
-
-}
-.bodyColumn3 {
-
-  width: 2%;
-  margin: 1%;
-
-}
-.footerColumn1 {
-
-  width: 20%;
-  margin: 1%;
-
-}
-.footerColumn2 {
-
-  width: 54%;
-  margin: 1%;
-
-}
-.footerColumn3 {
-
-  width: 20%;
-  margin: 1%;
-
-}
-
-
-
-    </style>
+    <link href="style.css" rel="stylesheet">
+    <!-- GOOGLE MAPS API AND JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API"]%>&libraries=places,geometry&sensor=false"></script>
+    <!-- APPLICATION JS -->
+    <script src="app.js"></script>
   </head>
-
- <body>
- <div class='navRow'>
-   <div class='columns navColumn1'>
-     <img class='navLogo' src="hippo.png" />
-   </div>
-   <div class='columns navColumn2'>
-     <form>
-      Find our hippo Winning some food to chomp...
-      <input class="food-type" type="text" placeholder="food" >
-      <input type='submit' />
-    </form>
-   </div>
-
-   <div class='columns navColumn3'></div>
- </div>
-
- <div class='bodyRow'>
-   <div class='columns bodyColumn1'></div>
-   <div class='columns bodyColumn2'>
-         <div id="map-canvas"></div>
-
-   </div>
-   <div class='columns bodyColumn3'></div>
- </div>
- <div class='footerRow'>
-   <div class='columns footerColumn1'></div>
-   <div class='columns footerColumn2'></div>
-   <div class='columns footerColumn3'></div>
- </div>
-
-
-
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API"]%>&libraries=places,geometry&sensor=false">
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-  <script type="text/javascript">
-var map;
-    var initialize = function () {
-    // submit can only be used on a forum
-      $('form').on('submit', function (e) {
-        e.preventDefault();
-
-        // $.get( "/address", {searchTerm: $('.food-type').val()}, function (data) {
-        //   // might need to do this
-        //    // var data = $.parseJSON(data)
-
-        //   console.log("Got data:", data);
-        //   // console.log("data size:", Object.keys(data).length);
-        // });
-
-
-      var mapProp = {
-        center: new google.maps.LatLng(30.2729209,97.74438630000003), //austin
-        zoom: 12,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
-      // ajax request
-
-      var defaultBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(30.343843,-97.744386),
-        new google.maps.LatLng(30.272921,-97.744386));
-      map.fitBounds(defaultBounds)
-
-
-        $.ajax({
-          type: "GET",
-          url:'/places',
-          "data": {
-            searchTerm: $('.food-type').val()
-          },
-          success: function(data) {
-            var lat = '';
-            var lng = '';
-            for(var i = 0; i < data.length; i++) {
-              addMarker(data[i]);
-
-
-              console.log(data[i]['name']);
-              console.log(data[i]['location']['city'])
-              console.log(data[i]['location']['state_code'])
-              console.log(data[i]['location']['country_code'])
-            }
-          }
-        })
-
-
-
-
-      });
-    };
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    var geocoder= new google.maps.Geocoder();
-    var addMarker = function (place) {
-      geocoder.geocode(
-        {
-          "address": place['location']['address'] + ' ' +
-            place['location']['city'] + ' ' +
-            place['location']['state_code'] + ' ' +
-            place['location']['country_code']
-        },
-        function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            lat = results[0].geometry.location.lat();
-            lng = results[0].geometry.location.lng();
-          }
-          console.log(place)
-
-          var hippoimg = ''
-          if (place.rating >= 5 ) {
-            hippoimg = 'hippo50.png'
-          } else if (place.rating == 4.5) {
-            hippoimg = 'hippo50.png'
-          } else if (place.rating == 4.0) {
-            hippoimg = 'hippo35.png'
-          } else if (place.rating == 3.5) {
-            hippoimg = 'hippo35.png'
-          } else if (place.rating <= 3) {
-            hippoimg = 'hippo30.png'
-          }
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,lng),
-            map: map,
-            title: place["name"],
-            animation: google.maps.Animation.DROP,
-            icon: hippoimg
-
-          });
-
-          var contentFood = "<div class='infoContent'>" +
-
-              "<div class='infoBody'>" +  "<div class='header'>" + place.name + '</div>'  + "<img src ='" + place.rating_img_url+ "'>"  + " " + place.review_count + " reviews <br>" + place.display_phone + "<br>"  + place.location.address +
-              "</div>" +
-              "<div class='infoImage'>" + "<img src='" + place.image_url + "'>" + " </div>"
-            "</div>"
-
-          var infowindow = new google.maps.InfoWindow({
-            maxWidth: 900,
-            content: contentFood,
-          });
-            console.log(marker.position);
-            console.log(place['name'])
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-          });
-
-        }
-      );
-    };
-
-    </script>
-
+  <body>
+    <div id="wrapper">
+      <header class="main-header">
+        <ul>
+          <li>How to use?</li>
+          <li>About</li
+        </ul>
+      </header>
+      <div class="container">
+        <div class="bubble"> Give me some food to eat!</div>
+        <img class='navLogo' src="hippo.png" />
+        <form>
+          <p>Find our hippo Winning some food to chomp...</p>
+          <input class="food-type" type="text" placeholder="food" >
+          <input type='submit'>
+        </form>
+      </div>
+      <div class="container">
+        <div id="map-canvas">
+        <!-- Outlet for map -->
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
