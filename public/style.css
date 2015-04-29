@@ -1,22 +1,10 @@
+/*#################*/
+/*# GLOBAL STYLES #*/
+/*################*/
 
 body, p, ul, li {
   margin: 0;
   padding: 0;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-}
-
-
-
-ul {
-  list-style-type: none;
-}
-
-ul li {
-  display: inline-block;
-}
-
-ul li {
-  margin-right: 50px;
 }
 
 .container {
@@ -26,6 +14,9 @@ ul li {
   margin-right: auto;
 }
 
+/*#################*/
+/*# SPEECH BUBBLE #*/
+/*################*/
 
 .bubble {
   position: relative;
@@ -40,24 +31,22 @@ ul li {
   text-align: center;
   padding-top: 15px;
   margin-right: 18px;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
-.bubble:after
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 14px 0 14px 30px;
-border-color: transparent #FFCDFF;
-width: 0;
-z-index: 1;
-right: -30px;
-top: 31px;
-float: left;
+.bubble:after{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 14px 0 14px 30px;
+  border-color: transparent #FFCDFF;
+  width: 0;
+  z-index: 1;
+  right: -30px;
+  top: 31px;
+  float: left;
 }
-
-
-
 
 /*#########*/
 /*# HEADER #/
@@ -69,10 +58,25 @@ float: left;
   color: white;
   font-weight: bold;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main-header li {
   margin-top: 35px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline-block;
+}
+
+ul li {
+  margin-right: 50px;
+  padding: 20px;
+  margin-bottom: 10px;
 }
 
 /*#################*/
@@ -81,6 +85,7 @@ float: left;
 
 form {
   margin-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .navLogo {
@@ -88,6 +93,10 @@ form {
   height: 120px;
   width: 120px;
 }
+
+/*##############*/
+/*# MAP OUTLET #*/
+/*##############*/
 
 #map-canvas {
   height: 500px;
