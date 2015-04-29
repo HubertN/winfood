@@ -4,7 +4,7 @@ $(document).ready(function() {
   // Handler for button click
   $("button").on('click',function(){
     // Bounce the hippo logo
-    $(".navLogo").effect( "bounce", {times:6}, 3500 );
+    $(".navLogo").effect( "bounce", {times:8}, 3500 );
     // Fades in new speech bubble text
     var hippoFood = $('.food-type').val();
     $(".bubble-text").fadeOut(1500,function(){
