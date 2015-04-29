@@ -2,7 +2,7 @@ var map;
 var initialize = function () {
 
   // Handler for form submission
-  $('button').on('click', function (e) {
+  $('.getFood').on('click', function (e) {
     e.preventDefault();
 
     // Create map properties with latitude and longitude pointing to Austin
@@ -34,10 +34,11 @@ var initialize = function () {
         var lng = '';
         for(var i = 0; i < data.length; i++) {
           addMarker(data[i]);
-          console.log(data[i]['name']);
-          console.log(data[i]['location']['city'])
-          console.log(data[i]['location']['state_code'])
-          console.log(data[i]['location']['country_code'])
+          // Debugging
+          // console.log(data[i]['name']);
+          // console.log(data[i]['location']['city'])
+          // console.log(data[i]['location']['state_code'])
+          // console.log(data[i]['location']['country_code'])
         }
       }
     })
@@ -107,8 +108,9 @@ var addMarker = function (place) {
         maxWidth: 900,
         content: contentFood,
       });
-        console.log(marker.position);
-        console.log(place['name'])
+        // Debugging
+        // console.log(marker.position);
+        // console.log(place['name'])
 
       // Handler, passing in the marker and created infoWindow
       google.maps.event.addListener(marker, 'click', function() {

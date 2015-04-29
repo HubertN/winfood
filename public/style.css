@@ -129,12 +129,12 @@ nav a:focus {
   opacity: 1;
 }
 
-/*#################*/
-/*# INPUT SECTION #*/
-/*################*/
+/*#########################*/
+/*# INPUT SECTION AND LOGO #*/
+/*########################*/
 
 form {
-  margin-top: 50px;
+  margin-top: 20px;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -277,11 +277,11 @@ form {
 /*# BUTTON #*/
 /*#########*/
 
-button {
+.getFood {
   margin-top: 37px;
 }
 
-button {
+.getFood {
   outline: none;
   background-color:#b75fbf;
   -moz-border-radius:28px;
@@ -297,15 +297,98 @@ button {
   text-shadow:0px 1px 0px #9d21db;
 
 }
-button:hover {
+.getFood:hover {
   background-color:#964f96;
   color: #333;
   position: relative;
   top:-2px;
 }
-button:active {
+.getFood:active {
   position:relative;
   top:2px;
+}
+
+/*########*/
+/* MODALS*/
+/*########*/
+
+.ui-widget {
+  line-height: 22px;
+  font-size: 1em;
+}
+
+.ui-widget-content {
+  background: #F9F9F9;
+  color: #333;
+  padding-bottom: 10px;
+  font-family: 'Roboto';
+  text-indent: 20px;
+}
+
+.ui-widget-content p {
+  padding-bottom: 10px;
+}
+
+.ui-dialog {
+  outline: none;
+  z-index: 10;
+  border-radius: 3%;
+}
+
+.ui-dialog a {
+  outline: none;
+  text-align: center;
+  text-decoration:none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.ui-dialog a:hover {
+  font-size: 1.65em;
+}
+
+.ui-dialog .ui-dialog-content {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  overflow: auto;
+  position: relative;
+  padding: 10px;
+  margin: 0;
+}
+
+.ui-dialog .ui-widget-header {
+  background: #a16dad;
+  border: 0;
+  color: #fff;
+  font-weight: normal;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: 10px;
+  position: relative;
+  font-size: 1em;
+  border-radius: 2%;
+}
+
+.ui-dialog-buttonset {
+  padding: 13px;
+}
+
+.ui-button {
+  outline: none;
+  float: right;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: #6a7989;
+  border: none;
+  color: #fff;
+  border-radius: 10%;
+}
+
+.ui-button:hover {
+  position: relative;
+  top: -3px;
 }
 
 /*##############*/

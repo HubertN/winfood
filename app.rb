@@ -10,11 +10,11 @@ Dotenv.load
 set :bind, "0.0.0.0"
 
 get "/" do
-  redirect "/home"
+  erb :home
 end
 
 get "/home" do
-  erb :ajax
+  erb :home
 end
 
 get "/places" do
