@@ -22,11 +22,12 @@ var initialize = function () {
     map.fitBounds(defaultBounds)
 
     // Ajax call to Yelp API, passing in input field for food type
+    // Call replace on string to remove white spaces
     $.ajax({
       type: "GET",
       url:'/places',
       "data": {
-        searchTerm: $('.food-type').val()
+        searchTerm: $('.food-type').val().replace(/\s+/g, '')
       },
       success: function(data) {
         // On success, pass in JSON objects from yelp API call, to the addMarker function
