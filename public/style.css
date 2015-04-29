@@ -8,6 +8,10 @@ body, p, ul, li {
   font-family: 'Raleway', sans-serif;
 }
 
+a:visited {
+  color: inherit;
+}
+
 .container {
   width: 96%;
   max-width: 1000px;
@@ -21,9 +25,9 @@ body, p, ul, li {
 
 .bubble {
   position: relative;
-  width: 215px;
+  width: 156px;
   height: 80px;
-  padding: 5px;
+  padding: 5px 20px;
   background: #FFCDFF;
   -webkit-border-radius: 42px;
   -moz-border-radius: 42px;
@@ -211,7 +215,7 @@ form {
 }
 
 .input__field--haruki {
-  padding: 0.4em 0.25em;
+  padding: 0.4em 0em;
   width: 100%;
   background: transparent;
   color: #AFB5BB;
@@ -316,13 +320,6 @@ span .examples {
   color: gray;
 }
 
-span .examples a:hover {
-  font-weight: bold;
-  font-size: 15px;
-  color: #6a7989;
-  cursor: pointer;
-}
-
 /*########*/
 /* MODALS*/
 /*########*/
@@ -357,6 +354,7 @@ span .examples a:hover {
   font-size: 1.5em;
   font-weight: bold;
   margin-left: -10px;
+  color: #a16dad;
   display: inline-block;
 }
 

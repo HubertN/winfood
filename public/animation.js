@@ -93,12 +93,7 @@ $(document).ready(function() {
   $('#instructions').click(openInstructions);
   $('#about').click(openAbout);
 
-  // Event handler for examples
-  $("span .examples a").click(function() {
-    var exampleText = ($(this).text());
-    $('.food-type').val(exampleText);
-    $('.getFood').click();
-  })
+
 });
 
 
