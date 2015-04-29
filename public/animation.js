@@ -24,9 +24,9 @@ $(document).ready(function() {
     var paragraph2 = document.createElement('p');
     var paragraph3 = document.createElement('p');
     var paragraph4 = document.createElement('p');
-    paragraph1.innerHTML = "Welcome to Win-Food! If you want to find some good places to eat in down-town Austin, you have come to the right place. Type in a food item in the input box and then click Get Food!.";
-    paragraph2.innerHTML = "A map will display on the screen with hippos. Hippos are places to eat and you can click on a hippo to get more information about that place.";
-    paragraph3.innerHTML = "Larger hippos represent High ratings. Smaller hippos have lower ratings, but you might still want to check them out :).";
+    paragraph1.innerHTML = "Welcome to Win-Food! If you want to find some good places to eat in down-town Austin, you have come to the right place. Type in a food item in the input box and then click Get Food!";
+    paragraph2.innerHTML = "A map will display on the screen with hippos. Hippos represent places to eat and you can click on a hippo to get more information about that place.";
+    paragraph3.innerHTML = "Larger hippos represent Higher ratings. Smaller hippos have lower ratings, but you might still want to check them out :).";
     paragraph4.innerHTML = "Dont worry though, our hippo have very high standards. Click on the buttons below to try out an example.";
 
     $('#instruction-modal').append(paragraph1);
