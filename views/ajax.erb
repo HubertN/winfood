@@ -2,9 +2,14 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Hubert Nguyen | Win-food</title>
+    <meta name="description" content="Food Finder: Find places to eat in downtown Austin" />
+    <meta name="keywords" content="javascript, jQuery, austin, food, css3, ruby" />
+    <meta name="author" content="Hubert Nguyen" />
     <link href='http://fonts.googleapis.com/css?family=Roboto|Open+Sans|Montserrat' rel='stylesheet' type='text/css'>
     <link href="style.css" rel="stylesheet">
     <link href="set1.css" rel="stylesheet">
+    <link href="component.css" rel="stylesheet">
     <!-- GOOGLE MAPS API AND JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -14,15 +19,16 @@
     <!-- Animations -->
     <script src="animation.js"></script>
     <script src="classie.js"></script>
+    <script src="modernizr.custom.js"></script>
   </head>
   <body>
     <div id="wrapper">
-      <header class="main-header">
-        <ul>
-          <li>How to use?</li>
-          <li>About</li
-        </ul>
-      </header>
+      <section class= "color-8 main-header">
+        <nav class="cl-effect-7">
+          <a href="#">How to Use?</a>
+          <a href="#">About</a>
+        </nav>
+      </section>
       <div class="container">
         <div class="bubble"> <span class="bubble-text">Give me some food to eat!</span></div>
         <img class='navLogo' src="hippo.png" />
@@ -34,7 +40,6 @@
             </label>
             <button>Get food!</button>
           </span>
-
         </form>
       </div>
       <div class="container">
