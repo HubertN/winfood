@@ -14,6 +14,10 @@ body, p, ul, li {
   margin-right: auto;
 }
 
+button {
+  margin-top: 37px;
+}
+
 /*#################*/
 /*# SPEECH BUBBLE #*/
 /*################*/
@@ -93,6 +97,7 @@ form {
   height: 120px;
   width: 120px;
 }
+
 
 /*##############*/
 /*# MAP OUTLET #*/

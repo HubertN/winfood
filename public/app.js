@@ -2,7 +2,7 @@ var map;
 var initialize = function () {
 
   // Handler for form submission
-  $('form').on('submit', function (e) {
+  $('button').on('click', function (e) {
     e.preventDefault();
 
     // Create map properties with latitude and longitude pointing to Austin

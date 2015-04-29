@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link href='http://fonts.googleapis.com/css?family=Roboto|Open+Sans|Montserrat' rel='stylesheet' type='text/css'>
     <link href="style.css" rel="stylesheet">
+    <link href="set1.css" rel="stylesheet">
     <!-- GOOGLE MAPS API AND JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -12,6 +13,7 @@
     <script src="app.js"></script>
     <!-- Animations -->
     <script src="animation.js"></script>
+    <script src="classie.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -25,9 +27,14 @@
         <div class="bubble"> Give me some food to eat!</div>
         <img class='navLogo' src="hippo.png" />
         <form>
-          <p>Find our hippo Winning some food to chomp...</p>
-          <input class="food-type" type="text" placeholder="food" >
-          <input type='submit'>
+          <span class="input input--haruki">
+            <input class="food-type input__field input__field--haruki" type="text" id="input-1"/>
+            <label class="input__label input__label--haruki" for="input-1">
+              <span class="input__label-content input__label-content--haruki">TYPE IN SOME FOOD!</span>
+            </label>
+            <button>Get food!</button>
+          </span>
+
         </form>
       </div>
       <div class="container">
