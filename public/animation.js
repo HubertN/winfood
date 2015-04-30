@@ -11,9 +11,13 @@ $(document).ready(function() {
       $(".bubble-text").html("Yummy! Some " + hippoFood + "!");
     }).fadeIn(1500);
 
-    // Fades out placeholder input text, and adjust padding
+    // Displays foot-note about hippo size
     $('.msg').fadeIn('slow');
+    // Fades in/displays default text
+    $('#map-canvas h1').hide();
     $('b').hide();
+
+    // Extra padding for input box after placeholder is removed
     $('#input-1').css('padding','1px');
 
 

@@ -422,6 +422,13 @@ span .examples {
   color: #a16dad;
   display: none;
 }
+
+#map-canvas h1 {
+  text-align: center;
+  color: #b75fbf;
+  margin-top: 2rem;
+}
+
 #map-canvas {
   height: 500px;
   margin: 0px;
