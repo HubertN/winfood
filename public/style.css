@@ -421,6 +421,7 @@ span .examples {
   text-align: right;
   color: #a16dad;
   display: none;
+  font-weight: bold;
 }
 
 #map-canvas h1 {
