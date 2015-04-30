@@ -416,6 +416,12 @@ span .examples {
 /*# MAP OUTLET #*/
 /*##############*/
 
+.msg {
+  margin-bottom: 1px;
+  text-align: right;
+  color: #a16dad;
+  display: none;
+}
 #map-canvas {
   height: 500px;
   margin: 0px;

@@ -12,8 +12,11 @@ $(document).ready(function() {
     }).fadeIn(1500);
 
     // Fades out placeholder input text, and adjust padding
-    $('b').fadeOut('slow');
+    $('.msg').fadeIn('slow');
+    $('b').hide();
     $('#input-1').css('padding','1px');
+
+
   });
 
   // Modal functions
@@ -27,7 +30,7 @@ $(document).ready(function() {
     paragraph1.innerHTML = "Welcome to Win-Food! If you want to find some great places to eat in downtown Austin, you have come to the right place. Type in a food item in the input box and then click Get Food!";
     paragraph2.innerHTML = "A map will display on the screen with hippos. Hippos represent places to eat and you can click on a hippo to get more information about that place.";
     paragraph3.innerHTML = "Larger hippos represent higher ratings. Smaller hippos have lower ratings, but you might still want to check them out :)";
-    paragraph4.innerHTML = "Dont worry though, our hippos have very high standards. Click on the buttons below to try out an example.";
+    paragraph4.innerHTML = "Don't worry though, our hippos have very high standards. Click on a button below to try out an example.";
 
     $('#instruction-modal').append(paragraph1);
     $('#instruction-modal').append(paragraph2);
