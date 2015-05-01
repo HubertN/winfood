@@ -334,7 +334,6 @@ span .examples {
   color: #333;
   padding-bottom: 10px;
   font-family: 'Roboto';
-  text-indent: 20px;
 }
 
 .ui-widget-content p {
@@ -346,20 +345,18 @@ span .examples {
   outline: none;
   z-index: 10;
   border-radius: 3%;
+  border: 3px solid #6a7989;
 }
 
 .ui-dialog a {
   outline: none;
   text-decoration:none;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-left: -10px;
   color: #a16dad;
-  display: inline-block;
+  margin-left: 5px;
 }
 
 .ui-dialog a:hover {
-  font-size: 1.65em;
+  font-weight: bold;
 }
 
 .ui-dialog .ui-dialog-content {
@@ -382,7 +379,7 @@ span .examples {
   padding: 10px;
   position: relative;
   font-size: 1em;
-  border-radius: 2%;
+  border-radius: 3%;
 }
 
 
