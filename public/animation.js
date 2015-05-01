@@ -77,7 +77,7 @@ $(document).ready(function() {
     var anchor = document.createElement('a');
     paragraph1.innerHTML = "Win Food was created by Hubert Nguyen. It was built using Ruby with the Sinatra framework, jQuery, jQuery UI, Google Maps API and the Yelp API.";
     paragraph2.innerHTML = "You can check out more of his work as his ";
-    anchor.innerHTML = "portfolio site";
+    anchor.innerHTML = "portfolio.";
     anchor.setAttribute('href','http://hubert-nguyen.com');
 
     $('#about-modal').append(paragraph1);
