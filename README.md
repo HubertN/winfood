@@ -31,6 +31,8 @@ Watch the hippo jump as a food is selected! The hippo will also tell the user wh
 A map will render on the screen with several hippos varying in size. The user can click the icon and a popup will display
 showing the address, phone number, and picture as well as the rating for the establishment. Larger icons means the place has a higher rating.
 
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/Screenshots/Screenshots/win-food-map.png)
+
 Purpose
 ===
 
