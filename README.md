@@ -1,4 +1,4 @@
-![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/hippo.png) Win-Food
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/Screenshots/Screenshots/hippo.png) Win-Food
 ===
 
 Hosted at: <http://win-food.herokuapp.com/>
@@ -22,11 +22,11 @@ User Interface
 A user can input a food type they would like to search for in the input box. A input can be completed when they hit enter OR
 click the get food button.
 
-![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/buttonBefore.png)
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/Screenshots/Screenshots/buttonBefore.png)
 
 Watch the hippo jump as a food is selected! The hippo will also tell the user what food he just ate.
 
-![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/buttonAfter.png)
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/Screenshots/Screenshots/buttonAfter.png)
 
 A map will render on the screen with several hippos varying in size. The user can click the icon and a popup will display
 showing the address, phone number, and picture as well as the rating for the establishment. Larger icons means the place has a higher rating.
