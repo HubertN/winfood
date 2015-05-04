@@ -1,8 +1,7 @@
-Win-Food
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/hippo.png) Win-Food
 ===
 
 Hosted at: <http://win-food.herokuapp.com/>
-
 
 Win-food is a food finder application that visualizes locations in downtown Austin based on rating and price.
 
@@ -23,8 +22,11 @@ User Interface
 A user can input a food type they would like to search for in the input box. A input can be completed when they hit enter OR
 click the get food button.
 
-Watch the hippo jump a food is selected! The hippo will also tell the user what food he just ate.
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/buttonBefore.png)
 
+Watch the hippo jump as a food is selected! The hippo will also tell the user what food he just ate.
+
+![ScreenShot](https://raw.githubusercontent.com/hasmany/winfood/screenshots/Screenshots/buttonAfter.png)
 
 A map will render on the screen with several hippos varying in size. The user can click the icon and a popup will display
 showing the address, phone number, and picture as well as the rating for the establishment. Larger icons means the place has a higher rating.
@@ -42,10 +44,4 @@ Future goals
 3. Incorporate mapBox or leaflet API in place of google maps because they allow more customization, including zoom size.
 4. Research and use a distance algorithm to display directions to locations.
 5. Allow more search parameters such as locatios by distance ex. (5 miles, 10 miles), payment type(cash only), hours of business etc.
-
-
-
-
-
-
 
