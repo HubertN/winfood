@@ -435,7 +435,31 @@ span .examples {
 }
 
 #wrapper {
-  min-width: 700px;
+ /* min-width: 700px;*/
 }
 
 
+@media (max-width: 670px) {
+
+
+  .interface {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 50px;
+  }
+
+  .bubble {
+    width: 78px;
+  }
+}
+
+@media (max-width: 500px) {
+  #about {
+    display: none;
+  }
+
+  .getFood {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
