@@ -472,4 +472,9 @@ span .examples {
   .ui-dialog {
     width: 300px !important;
   }
+
+  #wrapper {
+    padding: 0 10px;
+  }
+
 }
